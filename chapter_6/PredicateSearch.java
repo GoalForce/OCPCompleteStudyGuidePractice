@@ -1,0 +1,18 @@
+import java.util.*;
+import java.util.function.*;
+
+public class PredicateSearch {
+	public static void main(String args[]) { 
+		List<Animal> animals = new ArrayList<>();
+		animals.add(new Animal("fish", false, true));
+
+		print(animals, a -> a.canSwim());
+	}
+
+	private static void print(List<Animal> animals, Predicate<Animal> checker){
+		for(var animal: animals){
+			if(checker.test(animal))
+				System.out.println(animal + " ");
+		}
+	}
+}
